@@ -22,6 +22,24 @@
         </p>
     </div>
 </article>
+
+<div id="post-bottom-bar" class="post-bottom-bar">
+    <div class="bottom-bar-inner">
+        <div class="bottom-bar-items social-share left">
+            <span class="bottom-bar-item">Share : </span>
+            <span class="bottom-bar-item bottom-bar-facebook"><a  rel="nofollow">facebook</a></span>
+            <span class="bottom-bar-item bottom-bar-twitter"><a  rel="nofollow">Twitter</a></span>
+            <span class="bottom-bar-item bottom-bar-weibo"><a  rel="nofollow">Weibo</a></span>
+            <span class="bottom-bar-item bottom-bar-qrcode"><a target="_blank" rel="nofollow">微信</a></span>
+        </div>
+        <div class="bottom-bar-items right">
+            <span class="bottom-bar-item">${thePrev('→')}</span>
+            <span class="bottom-bar-item">${theNext('←')}</span>
+            <span class="bottom-bar-item"><a href="#footer">↓</a></span>
+            <span class="bottom-bar-item"><a href="#">↑</a></span>
+        </div>
+    </div>
+</div>
 <div th:replace="themes/default/comments::comments"></div>
 <div th:replace="themes/default/footer::footer"></div>
 </body>
