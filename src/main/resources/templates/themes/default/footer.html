@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="footer">
 <body>
-<footer class="footer bg-white">
+<!--使用id设置footer锚点-->
+<footer id="footer" class="footer bg-white">
     <div class="footer-social">
         <div class="footer-container clearfix">
             <div class="social-list">
@@ -32,8 +33,10 @@
     </div>
     <div class="footer-meta">
         <div class="footer-container">
-            <div class="meta-item meta-copyright">
-                <div class="meta-copyright-info">
+                <div class="meta-item meta-copyright">
+
+                    <div class="meta-copyright-info">
+
                     <div class="info-text">
                         <a href="/" style="display: block;margin: 0 auto;" class="info-logo">
                             <img style="display: block;margin: 0 auto;" th:src="@{/user/img/logo.png}" th:alt="${commons.site_title()}"/>
@@ -51,7 +54,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </footer>
@@ -157,6 +159,7 @@
 <script th:src="@{//cdn.bootcss.com/headroom/0.9.1/headroom.min.js}"></script>
 <script th:src="@{//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js}"></script>
 <script th:src="@{//cdn.bootcss.com/instantclick/3.0.1/instantclick.min.js}"></script>
+
 <script th:inline="javascript">
     /*<![CDATA[*/
     var isOk = [[${is_post}]];
@@ -208,5 +211,6 @@
     InstantClick.init('mousedown');
     /*]]>*/
 </script>
+
 </body>
 </html>
