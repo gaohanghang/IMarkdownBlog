@@ -22,7 +22,7 @@ nbdist/
 
 ###my own###
 logs
-upload
+##upload
 target
-tale.sql
+##tale.sql
 ##*.md
