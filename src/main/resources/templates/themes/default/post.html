@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:yh="http://www.thymeleaf.org">
 <div th:replace="themes/default/header::header(${article.title},${article.tags})"></div>
+<style type="text/css">
+    #myBtn {
+        display: none; /* Hidden by default 默认隐藏 */
+        position: fixed; /* Fixed/sticky position 固定定位 */
+        bottom: 20px; /* Place the button at the bottom of the page 距离底部的距离 */
+        right: 30px; /* Place the button 30px from the right  距离右侧的距离 */
+        z-index: 99; /* Make sure it does not overlap 确保它不重叠 */
+        border: none; /* Remove borders 删除边框 */
+        outline: none; /* Remove outline 删除轮廓 */
+        background-color: rgba(232, 98, 86, 0.8); /* Set a background color 设置背景颜色 */
+        color: white; /* Text color 文本颜色 */
+        cursor: pointer; /* Add a mouse pointer on hover 悬停时添加手型 */
+        padding: 15px; /* Some padding 一些内边距 */
+        border-radius: 10px; /* Rounded corners 圆角 */
+        font-size: 18px; /* Increase font size 增加字体大小 */
+    }
+
+    #myBtn:hover {
+        background-color: #555; /* Add a dark-grey background on hover 悬停时添加深灰色背景 */
+    }
+</style>
 <body>
 <article class="main-content post-page" itemscope="" itemtype="http://schema.org/Article">
     <div class="post-header">
@@ -23,8 +44,8 @@
     </div>
 </article>
 
-<!--实现返回顶部效果-->
-<div id="post-bottom-bar" class="post-bottom-bar">
+<!--底部导航-->
+<!--<div id="post-bottom-bar" class="post-bottom-bar">
     <div class="bottom-bar-inner">
         <div class="bottom-bar-items social-share left">
             <span class="bottom-bar-item">Share : </span>
@@ -34,14 +55,36 @@
             <span class="bottom-bar-item bottom-bar-qrcode"><a target="_blank" rel="nofollow">QRcode</a></span>
         </div>
         <div class="bottom-bar-items right">
-            <!--<span class="bottom-bar-item">${thePrev('→')}</span>
-            <span class="bottom-bar-item">${theNext('←')}</span>-->
+            &lt;!&ndash;<span class="bottom-bar-item">${thePrev('→')}</span>
+            <span class="bottom-bar-item">${theNext('←')}</span>&ndash;&gt;
             <span class="bottom-bar-item"><a href="#footer">↓</a></span>
             <span class="bottom-bar-item"><a href="#">↑</a></span>
         </div>
     </div>
-</div>
+</div>-->
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 <div th:replace="themes/default/comments::comments"></div>
 <div th:replace="themes/default/footer::footer"></div>
 </body>
+<script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    // 当用户从页面顶部向下滚动20px时，显示按钮
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("myBtn").style.display = "block";
+        } else {
+            document.getElementById("myBtn").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    // 当用户点击按钮时，滚动到页面的顶部
+    function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+</script>
 </html>
