@@ -23,18 +23,19 @@
     </div>
 </article>
 
+<!--实现返回顶部效果-->
 <div id="post-bottom-bar" class="post-bottom-bar">
     <div class="bottom-bar-inner">
         <div class="bottom-bar-items social-share left">
             <span class="bottom-bar-item">Share : </span>
-            <span class="bottom-bar-item bottom-bar-facebook"><a  rel="nofollow">facebook</a></span>
-            <span class="bottom-bar-item bottom-bar-twitter"><a  rel="nofollow">Twitter</a></span>
-            <span class="bottom-bar-item bottom-bar-weibo"><a  rel="nofollow">Weibo</a></span>
-            <span class="bottom-bar-item bottom-bar-qrcode"><a target="_blank" rel="nofollow">微信</a></span>
+            <span class="bottom-bar-item bottom-bar-facebook"><a  target="_blank" title="${title()}" rel="nofollow">facebook</a></span>
+            <span class="bottom-bar-item bottom-bar-twitter"><a  target="_blank" title="${title()}" rel="nofollow">Twitter</a></span>
+            <span class="bottom-bar-item bottom-bar-weibo"><a  target="_blank" title="${title()}" rel="nofollow">Weibo</a></span>
+            <span class="bottom-bar-item bottom-bar-qrcode"><a target="_blank" rel="nofollow">QRcode</a></span>
         </div>
         <div class="bottom-bar-items right">
-            <span class="bottom-bar-item">${thePrev('→')}</span>
-            <span class="bottom-bar-item">${theNext('←')}</span>
+            <!--<span class="bottom-bar-item">${thePrev('→')}</span>
+            <span class="bottom-bar-item">${theNext('←')}</span>-->
             <span class="bottom-bar-item"><a href="#footer">↓</a></span>
             <span class="bottom-bar-item"><a href="#">↑</a></span>
         </div>

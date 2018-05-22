@@ -21,6 +21,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
+ * 评论管理
  * Created by 13 on 2017/2/26.
  */
 @Controller
