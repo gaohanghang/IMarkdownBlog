@@ -1139,7 +1139,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 .post-data, .post-data a {
     font-size: 12px;
     color: #5f5f5f;
-    padding-left: 5px;
+    /*padding-left: 5px;*/
     padding-right: 5px
 }
 
@@ -1910,7 +1910,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     position: relative;
     z-index: 1;
     margin-top: 0;
-    padding-bottom: 50px;
+    padding-bottom: 0px; //设置距离底部的距离
     background-color: #fff
 }
 
