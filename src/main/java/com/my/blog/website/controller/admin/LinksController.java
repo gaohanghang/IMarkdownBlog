@@ -18,7 +18,8 @@ import java.util.List;
 
 /**
  * 友链管理
- * Created by 13 on 2017/2/21.
+ *
+ * Created by GaoHangHang.
  */
 @Controller
 @RequestMapping("admin/links")

@@ -22,7 +22,9 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Created by 13 on 2017/2/21.
+ * 页面管理
+ *
+ * Created by GaoHangHang.
  */
 @Controller()
 @RequestMapping("admin/page")

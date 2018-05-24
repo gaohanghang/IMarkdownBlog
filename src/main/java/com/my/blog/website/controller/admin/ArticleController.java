@@ -26,7 +26,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
- * Created by 13 on 2017/2/21.
+ * 文章管理
+ *
+ * Created by GaoHangHang.
  */
 @Controller
 @RequestMapping("/admin/article")

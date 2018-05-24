@@ -37,7 +37,8 @@ import java.util.List;
 
 /**
  * 首页
- * Created by Administrator on 2017/3/8 008.
+ *
+ * Created by GaoHangHang.
  */
 @Controller
 public class IndexController extends BaseController {

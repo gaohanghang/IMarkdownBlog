@@ -7,7 +7,9 @@ import com.my.blog.website.utils.MapCache;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Created by 13 on 2017/2/21.
+ *
+ *
+ * Created by GaoHangHang.
  */
 public abstract class BaseController {
 
@@ -49,6 +51,10 @@ public abstract class BaseController {
 
     public String render_404() {
         return "comm/error_404";
+    }
+
+    public String dinosaur_game() {
+        return "comm/game";
     }
 
 }
