@@ -5,9 +5,12 @@
     <title>500（服务器出差错了）- My Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!--
+        shortcut icon,特指浏览器中地址栏左侧显示的图标，一般大小为16x16，后缀名为.icon； icon，指的是图标，
+        格式可为PNG\GIF\JPEG，尺寸一般为16x16、24x24、36x36等。
+    -->
     <link rel="shortcut icon" th:href="@{/admin/images/favicon.png}"/>
-    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link th:href="@{/admin/css/style.min.css}" rel="stylesheet" type="text/css"/>
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -15,16 +18,105 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700');
+        @import url('https://fonts.googleapis.com/css?family=Catamaran:400,800');
+        .error-container {
+            text-align: center;
+            font-size: 106px;
+            font-family: 'Catamaran', sans-serif;
+            font-weight: 800;
+            margin: 70px 15px;
+        }
+        .error-container > span {
+            display: inline-block;
+            position: relative;
+        }
+        .screen-reader-text {
+            position: absolute;
+            top: -9999em;
+            left: -9999em;
+        }
+
+        @keyframes bgshadow {
+            0% {
+                box-shadow: inset -160px 160px 0px 5px rgba(0, 0, 0, 0.4);
+            }
+            45% {
+                box-shadow: inset 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+            }
+            55% {
+                box-shadow: inset 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+            }
+            100% {
+                box-shadow: inset 160px -160px 0px 5px rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        /* demo stuff */
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #FDFAF5;
+            margin-bottom: 50px;
+        }
+        html, button, input, select, textarea {
+            font-family: 'Montserrat', Helvetica, sans-serif;
+            color: #bbb;
+        }
+        h1 {
+            text-align: center;
+            margin: 30px 15px;
+        }
+        .zoom-area {
+            max-width: 490px;
+            margin: 30px auto 30px;
+            font-size: 19px;
+            text-align: center;
+        }
+        .link-container {
+            text-align: center;
+        }
+        a.more-link {
+            text-transform: uppercase;
+            font-size: 13px;
+            background-color: #de7e85;
+            padding: 10px 15px;
+            border-radius: 0;
+            color: #fff;
+            display: inline-block;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            line-height: 1.5;
+            text-decoration: none;
+            margin-top: 50px;
+            /*letter-spacing 设置字符间距*/
+            letter-spacing: 1px;
+        }
+    </style>
 </head>
 <body>
 
-<div class="wrapper-page">
+<!--<div class="wrapper-page">
     <div class="ex-page-content text-center">
-        <h1>500</h1>
-        <h2 class="font-light">服务器出了点差错.</h2><br></br>
-        <p>可以尝试向社区发出求助 <a href="https://github.com/zhisheng17/blog/issues/new" target="_blank">New Issues</a></p>
+        <h1>500 服务器出了点差错. </h1>
+        <p  class="zoom-area">可以尝试向社区发出求助 <a href="https://github.com/zhisheng17/blog/issues/new" target="_blank">New Issues</a></p><br></br>
         <a class="btn btn-purple waves-effect waves-light" href="/"><i class="fa fa-angle-left"></i> 返回首页</a>
     </div>
+</div>-->
+
+<h1>服务器出了点差错.</h1>
+<p  class="zoom-area">可以尝试向社区发出求助 <a href="https://github.com/gaohanghang/my-blog/issues/new" target="_blank">New Issues</a></p>
+<section class="error-container">
+    500
+</section>
+<div class="link-container">
+    <a href="/" class="more-link">返回首页</a>
+    <!--<a target="_blank" href="/" class="more-link">玩个游戏</a>-->
 </div>
 
 </body>
