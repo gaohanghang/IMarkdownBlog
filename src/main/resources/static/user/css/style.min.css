@@ -2127,7 +2127,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     }
 
     .footer-meta .footer-container {
-        height: 70px;
+        height: 170px;
         padding: 0 15px
     }
 
@@ -2137,7 +2137,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     }
 
     .footer-meta .meta-copyright .info-text {
-        float: left
+        /*float: left*/
     }
 
     .footer-meta .meta-copyright .info-text p {
