@@ -45,8 +45,12 @@
 
                 <ul class="nav navbar-nav navbar-right pull-right">
                     <li class="dropdown">
-                        <a th:href="@{index.html}" class="dropdown-toggle profile" data-toggle="dropdown"
+                        <!-- 使用阿里云默认头像 -->
+                        <!--<a th:href="@{index.html}" class="dropdown-toggle profile" data-toggle="dropdown"
                            aria-expanded="true"><img th:src="${commons.gravatar(session.login_user.email)}" alt="user-img"
+                                                     class="img-circle"/> </a>-->
+                        <a th:href="@{index.html}" class="dropdown-toggle profile" data-toggle="dropdown"
+                           aria-expanded="true"><img th:src="@{/admin/images/default_handsome.jpg}" alt="user-img"
                                                      class="img-circle"/> </a>
                         <ul class="dropdown-menu">
                             <li><a href="/" target="_blank"><i class="fa fa-eye"
