@@ -36,12 +36,17 @@ import java.net.URLEncoder;
 import java.util.List;
 
 /**
- * 首页
+ * 首页、文章页
  *
  * Created by GaoHangHang.
  */
 @Controller
 public class IndexController extends BaseController {
+    /*
+       LoggerFactory.getLogger(ArticleController.class);
+       使用指定类初始化日志对象
+       在日志输出的时候，可以打印出日志信息所在类
+    */
     private static final Logger LOGGER = LoggerFactory.getLogger(IndexController.class);
 
     @Resource
@@ -58,8 +63,6 @@ public class IndexController extends BaseController {
 
     /**
      * 首页
-     *
-     * @return
      */
     @GetMapping(value = {"/", "index"})
     public String index(HttpServletRequest request, @RequestParam(value = "limit", defaultValue = "6") int limit) {
@@ -76,10 +79,12 @@ public class IndexController extends BaseController {
      */
     @GetMapping(value = "page/{p}")
     public String index(HttpServletRequest request, @PathVariable int p, @RequestParam(value = "limit", defaultValue = "6") int limit) {
+        // 如果页码小于或页码大于100就让p=1
         p = p < 0 || p > WebConst.MAX_PAGE ? 1 : p;
         PageInfo<ContentVo> articles = contentService.getContents(p, limit);
         request.setAttribute("articles", articles);
         if (p > 1) {
+            // request.setAttribute是在请求域里面加了一个请求的参数，添加"title"参数
             this.title(request, "第" + p + "页");
         }
         return this.render("index");
@@ -94,7 +99,9 @@ public class IndexController extends BaseController {
      */
     @GetMapping(value = {"article/{cid}", "article/{cid}.html"})
     public String getArticle(HttpServletRequest request, @PathVariable String cid) {
+        // 根据cid获取文章对象
         ContentVo contents = contentService.getContents(cid);
+        // 如果文章对象为空或文章状态为草稿，跳转到404页面
         if (null == contents || "draft".equals(contents.getStatus())) {
             return this.render_404();
         }
@@ -286,6 +293,7 @@ public class IndexController extends BaseController {
      */
     @GetMapping(value = "links")
     public String links(HttpServletRequest request) {
+        // 获取链接链接类型的项目对象
         List<MetaVo> links = metaService.getMetas(Types.LINK.getType());
         request.setAttribute("links", links);
         return this.render("links");
@@ -347,7 +355,9 @@ public class IndexController extends BaseController {
         if (chits == null) {
             chits = 0;
         }
+        // 如果文章点击率等于null就设置为1,否则加1
         hits = null == hits ? 1 : hits + 1;
+        // 如果点击率超过>=10就更新
         if (hits >= WebConst.HIT_EXCEED) {
             ContentVo temp = new ContentVo();
             temp.setCid(cid);
@@ -383,8 +393,9 @@ public class IndexController extends BaseController {
     public String tags(HttpServletRequest request, @PathVariable String name, @PathVariable int page, @RequestParam(value = "limit", defaultValue = "6") int limit) {
 
         page = page < 0 || page > WebConst.MAX_PAGE ? 1 : page;
-//        对于空格的特殊处理
+        // 对于空格的特殊处理
         name = name.replaceAll("\\+", " ");
+        // 获取名称为name标签
         MetaDto metaDto = metaService.getMeta(Types.TAG.getType(), name);
         if (null == metaDto) {
             return this.render_404();

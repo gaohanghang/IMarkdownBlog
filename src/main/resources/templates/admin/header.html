@@ -28,9 +28,9 @@
                     <img th:src="@{/admin/images/logo.png}" width="50" height="50"/>
                 </a>
             </div>
-            <div class="pull-left" style="padding-left: 10px;">
+         <!--   <div id="myblog" class="pull-left" style="padding-left: 10px;">
                 <span style="font-size: 28px; color: #2f353f; line-height: 50px;">My Blog</span>
-            </div>
+            </div>-->
         </div>
     </div>
     <div class="navbar navbar-default" role="navigation">
@@ -65,10 +65,14 @@
         </div>
     </div>
 </div>
+    <!-- 左侧菜单 -->
 <div class="left side-menu">
+    <!-- 侧面导航内人 -->
     <div class="sidebar-inner slimscrollleft">
+        <!-- 侧面导航 -->
         <div id="sidebar-menu">
             <ul>
+                <!-- th:class="${active}=='home'?'active':''" 判断哪个是被选中了 -->
                 <li th:class="${active}=='home'?'active':''">
                     <a th:href="@{/admin/index}"
                        th:class="${active}=='home'?'waves-effect active':'waves-effect'"><i

@@ -5,8 +5,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * map缓存实现
- * <p>
- * Created by 13 on 2017/2/7.
  */
 public class MapCache {
 
@@ -30,6 +28,9 @@ public class MapCache {
         this(DEFAULT_CACHES);
     }
 
+    /**
+     * @param cacheCount 指定缓存大小
+     */
     public MapCache(int cacheCount) {
         cachePool = new ConcurrentHashMap<>(cacheCount);
     }

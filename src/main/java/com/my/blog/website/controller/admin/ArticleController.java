@@ -32,9 +32,20 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/admin/article")
+/*
+    声明事务
+    @Transactional(rollbackFor=Exception.class)
+    当这个类里面的方法抛出运行时异常时，就会回滚，数据库里面的数据也会回滚。TipException是
+    运行指定当出现运行时异常的子类TipException时RuntimeException的子类。
+*/
 @Transactional(rollbackFor = TipException.class)
 public class ArticleController extends BaseController {
 
+    /*
+        LoggerFactory.getLogger(ArticleController.class);
+        使用指定类初始化日志对象
+        在日志输出的时候，可以打印出日志信息所在类
+     */
     private static final Logger LOGGER = LoggerFactory.getLogger(ArticleController.class);
 
     @Resource

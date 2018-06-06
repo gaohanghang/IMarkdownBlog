@@ -95,14 +95,18 @@ public class ContentServiceImpl implements IContentService {
         metasService.saveMetas(cid, categories, Types.CATEGORY.getType());
     }
 
+    // 返回第p页的所有文章
     @Override
     public PageInfo<ContentVo> getContents(Integer p, Integer limit) {
         LOGGER.debug("Enter getContents method");
         ContentVoExample example = new ContentVoExample();
         example.setOrderByClause("created desc");
         example.createCriteria().andTypeEqualTo(Types.ARTICLE.getType()).andStatusEqualTo(Types.PUBLISH.getType());
+        // 1.使用PageHelper进行分页startPage(第几页，多少条数据)
         PageHelper.startPage(p, limit);
+        // 2.Mybatis查询方法
         List<ContentVo> data = contentDao.selectByExampleWithBLOBs(example);
+        // 3.用PageInfo对结果进行包装
         PageInfo<ContentVo> pageInfo = new PageInfo<>(data);
         LOGGER.debug("Exit getContents method");
         return pageInfo;

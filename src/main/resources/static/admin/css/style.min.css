@@ -145,6 +145,43 @@ a:focus {
     padding: 6px 20px
 }
 
+/*背景颜色开始*/
+.bg-white {
+    background-color: #fff !important
+}
+
+.bg-grey {
+    background-color: #f7f7f7 !important
+}
+
+.bg-deepgrey {
+    background-color: rgba(0, 0, 0, .5) !important
+}
+
+.bg-blue {
+    background-color: #6fa3ef !important
+}
+
+.bg-purple {
+    background-color: #bc99c4 !important
+}
+
+.bg-green {
+    background-color: #46c47c !important
+}
+
+.bg-yellow {
+    background-color: #f9bb3c !important
+}
+
+.bg-red {
+    background-color: #e8583d !important
+}
+
+.bg-orange {
+    background-color: #f68e5f !important
+}
+
 .bg-primary {
     background-color: #6e8cd7 !important
 }
@@ -173,17 +210,10 @@ a:focus {
     background-color: #212121 !important
 }
 
-.bg-purple {
-    background-color: #7e57c2 !important
-}
-
 .bg-pink {
     background-color: #ec407a !important
 }
-
-.bg-white {
-    background-color: #fff !important
-}
+/*背景颜色结束*/
 
 .text-white {
     color: #fff
@@ -3116,6 +3146,7 @@ body.fixed-left .side-menu.left {
     padding: 0 15px
 }
 
+/*鼠标滑过之后的颜色变化*/
 .button-menu-mobile:hover {
     color: #212121
 }
@@ -3225,7 +3256,7 @@ body.fixed-left .side-menu.left {
 }
 
 #wrapper.enlarged .left.side-menu {
-    padding-top: 80px;
+    /*padding-top: 80px;*/
     width: 70px;
     z-index: 5
 }
@@ -3833,10 +3864,19 @@ body.fixed-left .side-menu.left {
 
 @media (max-width: 767px) {
     body {
+        /*
+            如果其中的内容溢出了元素的内容区
+            使用hidden代表裁剪内容 - 不提供滚动机制
+        */
         overflow-x: hidden
     }
 
+
     .content-page {
+        /*
+            外边距由70px变成0
+            !import用来增加样式权重
+        */
         margin-left: 0 !important
     }
 

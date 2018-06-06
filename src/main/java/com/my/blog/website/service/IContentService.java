@@ -5,6 +5,7 @@ import com.my.blog.website.modal.Vo.ContentVoExample;
 import com.my.blog.website.modal.Vo.ContentVo;
 
 /**
+ * 文章Service
  * Created by Administrator on 2017/3/13 013.
  */
 public interface IContentService {
@@ -22,7 +23,7 @@ public interface IContentService {
     void publish(ContentVo contents);
 
     /**
-     *查询文章返回多条数据
+     * 查询文章返回多条数据
      * @param p 当前页
      * @param limit 每页条数
      * @return ContentVo

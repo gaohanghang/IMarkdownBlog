@@ -3,6 +3,7 @@ package com.my.blog.website.modal.Vo;
 import java.io.Serializable;
 
 /**
+ * 关系实体类
  * @author 
  */
 public class RelationshipVoKey implements Serializable {

@@ -29,7 +29,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Tale工具类
+ *  Blog工具类
  * <p>
  * Created by 13 on 2017/2/21.
  */
@@ -204,13 +204,14 @@ public class TaleUtils {
     /**
      * 返回当前登录用户
      *
-     * @return
+     * @return Uer实体类
      */
     public static UserVo getLoginUser(HttpServletRequest request) {
         HttpSession session = request.getSession();
         if (null == session) {
             return null;
         }
+        // 获取session中key为login_user的value
         return (UserVo) session.getAttribute(WebConst.LOGIN_SESSION_KEY);
     }
 

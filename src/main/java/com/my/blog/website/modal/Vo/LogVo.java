@@ -3,6 +3,7 @@ package com.my.blog.website.modal.Vo;
 import java.io.Serializable;
 
 /**
+ * 日志实体类
  * @author 
  */
 public class LogVo implements Serializable {
