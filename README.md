@@ -1,6 +1,9 @@
 # My blog
 
 用spring boot开发的web博客系统
+
+myblog.sql为数据库文件
+
 ## 首页
 
 ![mark](http://omi0o6pp2.bkt.clouddn.com/blog/180518/9Ag2587ld8.png)

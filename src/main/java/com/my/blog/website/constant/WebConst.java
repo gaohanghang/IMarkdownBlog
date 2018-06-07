@@ -19,9 +19,10 @@ public class WebConst {
 
     public static Map<String, String> initConfig = new HashMap<>();
 
-
+    //  登录用户在session的key
     public static String LOGIN_SESSION_KEY = "login_user";
 
+    // 用户ID的   COOKIE名称
     public static final String USER_IN_COOKIE = "S_L_ID";
 
     /**

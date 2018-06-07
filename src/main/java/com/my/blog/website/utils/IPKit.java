@@ -12,6 +12,7 @@ import java.util.Enumeration;
  */
 public class IPKit {
     /**
+     * 通过请求获取ip地址
      * @param request 请求
      * @return IP Address
      */

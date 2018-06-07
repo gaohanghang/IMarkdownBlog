@@ -38,13 +38,17 @@ import java.util.List;
 @RequestMapping("admin/attach")
 public class AttachController extends BaseController {
 
+    // 定义日志常量对象LOGGER
     private static final Logger LOGGER = LoggerFactory.getLogger(AttachController.class);
 
+    // 定义常量文件保存的位置CLASSPATH
     public static final String CLASSPATH = TaleUtils.getUplodFilePath();
 
+    // 注入attachService对象
     @Resource
     private IAttachService attachService;
 
+    // 注入logService对象
     @Resource
     private ILogService logService;
 

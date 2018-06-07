@@ -1,5 +1,10 @@
+/*
+  切换的css
+*/
+/*切换滑动*/
 .toggle-slide {
   overflow: hidden;
+  /*鼠标变小手*/
   cursor: pointer;
   -webkit-touch-callout: none;
   -webkit-user-select: none;

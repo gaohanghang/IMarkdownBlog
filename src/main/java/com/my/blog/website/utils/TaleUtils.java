@@ -244,11 +244,15 @@ public class TaleUtils {
      * @return cookie
      */
     private static Cookie cookieRaw(String name, HttpServletRequest request) {
+        // 获取所有cookies
         javax.servlet.http.Cookie[] servletCookies = request.getCookies();
+        // 如果cookies数据为null返回null
         if (servletCookies == null) {
             return null;
         }
+        // 遍历cookie数组
         for (javax.servlet.http.Cookie c : servletCookies) {
+            // 如果cookie名称等于传过来的name就返回cookie
             if (c.getName().equals(name)) {
                 return c;
             }
@@ -486,16 +490,23 @@ public class TaleUtils {
      * @return
      */
     public static String getUplodFilePath() {
+
+        // 获取jar所在的目录的路径
         String path = TaleUtils.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+        // 去掉第一个斜杠
         path = path.substring(1, path.length());
         try {
+            // 转换为utf-8编码，支持中文
             path = java.net.URLDecoder.decode(path, "utf-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+        // 末尾下标
         int lastIndex = path.lastIndexOf("/") + 1;
+        // 获取jar包所在目录
         path = path.substring(0, lastIndex);
         File file = new File("");
+        // 获取绝对路径
         return file.getAbsolutePath() + "/";
     }
 }

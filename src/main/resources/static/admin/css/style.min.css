@@ -2963,7 +2963,7 @@ div.dataTables_info {
 }
 
 .topbar .topbar-left {
-    background-color: #eee;
+    background-color: rgb(73, 80, 96);
     float: left;
     height: 70px;
     position: relative;
@@ -3111,7 +3111,7 @@ input.search-bar:-ms-input-placeholder {
 }
 
 .side-menu.left {
-    background: #2f353f;
+    background: rgb(73, 80, 96);;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
     position: absolute;
     top: 70px
@@ -3167,7 +3167,7 @@ body.fixed-left .side-menu.left {
 }
 
 #sidebar-menu {
-    background-color: #2f353f;
+    background-color: rgb(73, 80, 96);
     padding-bottom: 50px;
     width: 100%
 }
@@ -3210,7 +3210,7 @@ body.fixed-left .side-menu.left {
     color: #a7b1c2;
     display: block;
     padding: 15px 25px;
-    background: #2f353f
+    background: rgb(73, 80, 96);
 }
 
 #sidebar-menu > ul > li > a:hover {

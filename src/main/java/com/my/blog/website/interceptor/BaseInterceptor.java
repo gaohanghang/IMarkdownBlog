@@ -21,7 +21,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Component
 public class BaseInterceptor implements HandlerInterceptor {
+    // 初始化日志对象给常量LOGGE
     private static final Logger LOGGE = LoggerFactory.getLogger(BaseInterceptor.class);
+    // 字符串常量 用户的客户端
     private static final String USER_AGENT = "user-agent";
 
     @Resource
@@ -38,22 +40,30 @@ public class BaseInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
+        // 获取请求的URI
+        // 比如URL:http://localhost:8080/myapp/admin/login.html
+        // 那么URI就是URI:/myapp/admin/login.html
         String uri = request.getRequestURI();
+
 
         LOGGE.info("UserAgent: {}", request.getHeader(USER_AGENT));
         LOGGE.info("用户访问地址: {}, 来路地址: {}", uri, IPKit.getIpAddrByRequest(request));
 
 
-        //请求拦截处理
+        //请求拦截处理 从session获取用户对象
         UserVo user = TaleUtils.getLoginUser(request);
+        // 如果用户为空，说明没有登录
         if (null == user) {
+            // 从cookie中获取用户id
             Integer uid = TaleUtils.getCookieUid(request);
             if (null != uid) {
-                //这里还是有安全隐患,cookie是可以伪造的
+                //这里还是有安全隐患,cookie是可以伪造的 通过用户id获取用户对象
                 user = userService.queryUserById(uid);
+                // 在session中保存用户数据 ("login_user",user)
                 request.getSession().setAttribute(WebConst.LOGIN_SESSION_KEY, user);
             }
         }
+        // 如果uri为admin且不是/admin/login且用户信息为空就跳转到登录页面
         if (uri.startsWith("/admin") && !uri.startsWith("/admin/login") && null == user) {
             response.sendRedirect(request.getContextPath() + "/admin/login");
             return false;
