@@ -3214,7 +3214,8 @@ body.fixed-left .side-menu.left {
 }
 
 #sidebar-menu > ul > li > a:hover {
-    background: #272c35;
+    background: #363e4f;
+    color: #FFFFFF;
     text-decoration: none
 }
 
@@ -3238,9 +3239,11 @@ body.fixed-left .side-menu.left {
     margin: 3px 0 0
 }
 
+/*左侧菜单处于选中状态时的样式*/
 #sidebar-menu > ul > li > a.active {
-    background: #272c35 !important;
-    color: #fff
+    background: #363e4f !important;
+    color: #2d8cf0;
+    border-right: 2px solid #2d8cf0;
 }
 
 #sidebar-menu > ul > li > a.active.subdrop {
