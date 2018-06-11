@@ -3,7 +3,7 @@ package com.my.blog.website.modal.Bo;
 import java.io.Serializable;
 
 /**
- * Created by 13 on 2017/2/25.
+ *
  */
 public class BackResponseBo implements Serializable {
 
