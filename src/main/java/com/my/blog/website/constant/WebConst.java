@@ -56,12 +56,12 @@ public class WebConst {
     public static final int HIT_EXCEED = 10;
 
     /**
-     * 上传文件最大1M
+     * 上传文件为最大1M
      */
     public static Integer MAX_FILE_SIZE = 1048576;
 
     /**
-     * 要过滤的ip列表
+     * 要过滤的ip列表 初始容量为16
      */
     public static final Set<String> BLOCK_IPS = new HashSet<>(16);
 }

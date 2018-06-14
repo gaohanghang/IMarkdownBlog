@@ -48,14 +48,15 @@ public class ArticleController extends BaseController {
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(ArticleController.class);
 
+    /*@Resource默认是按照名称来装配注入的，只有当找不到与名称匹配的bean才会按照类型来装配注入*/
     @Resource
-    private IContentService contentsService;
+    private IContentService contentsService;//内容Service
 
     @Resource
-    private IMetaService metasService;
+    private IMetaService metasService;//配置service
 
     @Resource
-    private ILogService logService;
+    private ILogService logService;//日志service
 
     /**
      * 文章列表
@@ -65,6 +66,7 @@ public class ArticleController extends BaseController {
      * @return
      */
     @GetMapping(value = "")
+    /*defaultValue 设置请求参数的默认值；*/
     public String index(@RequestParam(value = "page", defaultValue = "1") int page,
                         @RequestParam(value = "limit", defaultValue = "15") int limit, HttpServletRequest request) {
         ContentVoExample contentVoExample = new ContentVoExample();
