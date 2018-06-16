@@ -6,6 +6,8 @@ import java.util.Random;
 
 /**
  * 封装UUID
+ *
+ * 唯一识别码
  */
 public abstract class UUID {
 

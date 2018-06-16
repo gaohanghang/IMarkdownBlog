@@ -2,9 +2,6 @@ package com.my.blog.website.modal.Bo;
 
 import java.io.Serializable;
 
-/**
- *
- */
 public class BackResponseBo implements Serializable {
 
     private String attachPath;

@@ -1,5 +1,7 @@
 /**
  *  Tale全局函数对象   var tale = new $.tale();
+ *
+ *  jQuery.extend() 函数用于将一个或多个对象的内容合并到目标对象。
  */
 $.extend({
     tale: function () {

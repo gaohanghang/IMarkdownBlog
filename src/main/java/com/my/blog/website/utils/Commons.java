@@ -29,16 +29,19 @@ import java.util.regex.Pattern;
 @Component
 public final class Commons {
 
+    // 声明站点服务Service
     private static ISiteService siteService;
 
+    // 主题为默认
     public static String THEME = "themes/default";
 
+    // 初始为空arraylist常量
     private static final List EMPTY = new ArrayList(0);
 
+    // 设置siteService
     public static void setSiteService(ISiteService ss) {
         siteService = ss;
     }
-
 
     /**
      * 判断分页中是否有数据
@@ -59,12 +62,14 @@ public final class Commons {
         return site_url("");
     }
 
+    // 网站的根路径
     public static String site_index() {
         return "index";
     }
 
     /**
      * 在管理员页面退出登录返回到登录界面
+     *
      * @return
      */
     public static String site_login() {
@@ -108,9 +113,12 @@ public final class Commons {
      * @return
      */
     public static String site_option(String key, String defalutValue) {
+        // 如果为空返回空
         if (StringUtils.isBlank(key)) {
             return "";
         }
+
+        // 获取初始化配置
         String str = WebConst.initConfig.get(key);
         if (StringUtils.isNotBlank(str)) {
             return str;
@@ -149,6 +157,7 @@ public final class Commons {
      * @return
      */
     public static String theme_url(String sub) {
+        // THEME = "themes/default";  使用默认主题下的文件
         return site_url(Commons.THEME + sub);
     }
 
@@ -168,8 +177,8 @@ public final class Commons {
     }
 
     /**
-     * 返回文章链接地址
-     *
+     * 返回文章链接地址 例如：
+     * http://localhost:8081/article/Hello-World
      * @param contents
      * @return
      */
@@ -179,8 +188,8 @@ public final class Commons {
 
 
     /**
-     * 获取随机数
-     *
+     * 获取随机数+文件名后缀
+     * 如1.png
      * @param max
      * @param str
      * @return
@@ -197,6 +206,7 @@ public final class Commons {
      * @return
      */
     public static String permalink(Integer cid, String slug) {
+        // 如果有缩略名就返回缩略名，否则返回文章id
         return site_url("/article/" + (StringUtils.isNotBlank(slug) ? slug : cid.toString()));
     }
 
@@ -213,11 +223,12 @@ public final class Commons {
     /**
      * 格式化unix时间戳为日期
      *
-     * @param unixTime
-     * @param patten
+     * @param unixTime 时间戳
+     * @param patten 格式
      * @return
      */
     public static String fmtdate(Integer unixTime, String patten) {
+        // 如果unixTime不为null && patten不为空
         if (null != unixTime && StringUtils.isNotBlank(patten)) {
             return DateKit.formatDateByUnixTime(unixTime, patten);
         }
@@ -357,6 +368,7 @@ public final class Commons {
      * @return
      */
     public static List<MetaDto> tags(int limit) {
+        // Types.TAG.getType() = tag
         return siteService.metas(Types.TAG.getType(), null, limit);
     }
 

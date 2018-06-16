@@ -15,14 +15,15 @@ public class WebConst {
     /**
      * 存储安装信息的配置文件名称
      */
-    public static final String INSTALL_FILE_CONF = "install.lock";
+    // public static final String INSTALL_FILE_CONF = "install.lock";
 
+    // 初始化配置
     public static Map<String, String> initConfig = new HashMap<>();
 
     //  登录用户在session的key
-    public static String LOGIN_SESSION_KEY = "login_user";
+    public static final String LOGIN_SESSION_KEY = "login_user";
 
-    // 用户ID的   COOKIE名称
+    // 用户ID的   cookie名称
     public static final String USER_IN_COOKIE = "S_L_ID";
 
     /**
@@ -61,7 +62,7 @@ public class WebConst {
     public static Integer MAX_FILE_SIZE = 1048576;
 
     /**
-     * 要过滤的ip列表 初始容量为16
+     * 要过滤的ip列表 存储的元素无序，值不能重复
      */
     public static final Set<String> BLOCK_IPS = new HashSet<>(16);
 }

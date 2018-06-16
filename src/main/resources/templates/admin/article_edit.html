@@ -1,3 +1,4 @@
+<!--文章编辑-->
 <!DOCTYPE html>
 <!-- th:with用于定义局部变量 -->
 <html lang="en" xmlns:th="http://www.thymeleaf.org" th:with="title='保存文章',active='publish'">
@@ -72,6 +73,7 @@
                                     </th:block>
                                     <th:block th:unless="${null == categories}">
                                         <th:block th:each="c : ${categories}">
+                                            <!-- 如果分类在分类列表中存在就选中 -->
                                             <option th:value="${c.name}" th:text="${c.name}"  th:selected="${null !=contents and adminCommons.exist_cat(c, contents.categories)}?true:false" ></option>
                                         </th:block>
                                     </th:block>

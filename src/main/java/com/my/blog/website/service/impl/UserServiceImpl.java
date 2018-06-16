@@ -14,9 +14,6 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 
-/**
- * Created by BlueT on 2017/3/3.
- */
 @Service
 public class UserServiceImpl implements IUserService {
     private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
@@ -47,6 +44,7 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public UserVo login(String username, String password) {
+        // 后台校验
         if (StringUtils.isBlank(username) || StringUtils.isBlank(password)) {
             throw new TipException("用户名和密码不能为空");
         }

@@ -53,10 +53,10 @@ public class ArticleController extends BaseController {
     private IContentService contentsService;//内容Service
 
     @Resource
-    private IMetaService metasService;//配置service
+    private IMetaService metasService;//配置service   获取分类/便签信息
 
     @Resource
-    private ILogService logService;//日志service
+    private ILogService logService;//日志service  日志记录
 
     /**
      * 文章列表

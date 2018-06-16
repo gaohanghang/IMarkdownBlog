@@ -7,9 +7,10 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
- * Created by Administrator on 2017/3/10 010.
+ * 日期工具类
  */
 public class DateKit {
+    // 定义int常量代表日，周，月，年，小时，分钟，秒
     public static final int INTERVAL_DAY = 1;
     public static final int INTERVAL_WEEK = 2;
     public static final int INTERVAL_MONTH = 3;
@@ -17,7 +18,9 @@ public class DateKit {
     public static final int INTERVAL_HOUR = 5;
     public static final int INTERVAL_MINUTE = 6;
     public static final int INTERVAL_SECOND = 7;
+    // date = 1901-01-01
     public static final Date tempDate = new Date((new Long("-2177481952000")).longValue());
+
     private static List<SimpleDateFormat> dateFormats = new ArrayList(12) {
         private static final long serialVersionUID = 2249396579858199535L;
 
@@ -40,6 +43,11 @@ public class DateKit {
     public DateKit() {
     }
 
+    /**
+     * 测试是否是当天
+     * @param date 某一日期
+     * @return true-今天, false-不是
+     */
     public static boolean isToday(Date date) {
         Date now = new Date();
         boolean result = true;
@@ -49,6 +57,13 @@ public class DateKit {
         return result;
     }
 
+    /**
+     * 两个日期相减，取天数
+     *
+     * @param date1
+     * @param date2
+     * @return
+     */
     public static long DaysBetween(Date date1, Date date2) {
         if(date2 == null) {
             date2 = new Date();
@@ -58,9 +73,15 @@ public class DateKit {
         return day;
     }
 
+    /**
+     * 比较两个日期 if date1<=date2 return true
+     *
+     * @param date1
+     * @param date2
+     * @return
+     */
     public static boolean compareDate(String date1, String date2) {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-
         try {
             Date e = format.parse(date1);
             Date d2 = format.parse(date2);
@@ -71,6 +92,13 @@ public class DateKit {
         }
     }
 
+    /**
+     * 字符型转换成日期型
+     *
+     * @param date
+     * @param dateFormat
+     * @return
+     */
     public static Date dateFormat(String date, String dateFormat) {
         if(date == null) {
             return null;
@@ -85,10 +113,24 @@ public class DateKit {
         }
     }
 
+    /**
+     * 使用默认格式 yyyy-MM-dd HH:mm:ss
+     * @author Robin Chang
+     * @param date
+     * @return
+     */
     public static Date dateFormat(String date) {
         return dateFormat(date, "yyyy-MM-dd HH:mm:ss");
     }
 
+
+    /**
+     * 日期型转换成字符串
+     *
+     * @param date
+     * @param dateFormat
+     * @return
+     */
     public static String dateFormat(Date date, String dateFormat) {
         if(date != null) {
             SimpleDateFormat format = new SimpleDateFormat(dateFormat);
@@ -100,6 +142,12 @@ public class DateKit {
         return "";
     }
 
+    /**
+     * 由于生日增加保密属性，现决定1900为保密对应值，如果遇到1900的年份，则隐掉年份
+     *
+     * @param date
+     * @return 不保密显示1981-12-01 保密则显示`12-01
+     */
     public static String birthdayFormat(Date date) {
         if(date != null) {
             SimpleDateFormat format = null;
@@ -117,6 +165,11 @@ public class DateKit {
         return "";
     }
 
+    /**
+     * 使用默认格式 yyyy-MM-dd HH:mm:ss
+     * @param date
+     * @return
+     */
     public static String dateFormat(Date date) {
         return dateFormat(date, "yyyy-MM-dd HH:mm:ss");
     }

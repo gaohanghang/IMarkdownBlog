@@ -2,7 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="header(title,keywords)">
 <head>
     <meta charset="utf-8"/>
+    <!--
+        IE=edge告诉IE使用最新的引擎渲染网页，chrome=1则可以激活Chrome Frame
+        Chrome Frame可以让旧版IE浏览器使用Chrome的WebKit渲染引擎处理网页，
+        因此旧版IE用户可以体验到包括HTML5在内的众多现代网页技术。
+    -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <!--WebKit渲染引擎处理网页-->
     <meta name="renderer" content="webkit"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta http-equiv="Cache-Control" content="no-transform"/>

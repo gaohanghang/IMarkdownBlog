@@ -27,34 +27,43 @@ import java.io.IOException;
 /**
  * 用户后台登录/登出
  *
- * Created by BlueT on 2017/3/11.
  */
 @Controller
 @RequestMapping("/admin")
+/*
+    声明事务，当出现TipException异常时，进行回滚
+*/
 @Transactional(rollbackFor = TipException.class)
 public class AuthController extends BaseController {
 
+    /*
+        LoggerFactory是一个为各种日志记录API记录器的实用程序类，最值得注意的是log4j、logback
+        and logging
+        Logger 日志记录器
+    */
     private static final Logger LOGGER = LoggerFactory.getLogger(AuthController.class);
 
     @Resource
-    private IUserService usersService;
+    private IUserService usersService; // 注入日志Service对象
 
     @Resource
-    private ILogService logService;
+    private ILogService logService; // 注入日志Service对象
 
-    @GetMapping(value = "/login")
+    @GetMapping(value = "/login")  // get请求 路径为/admin/login
     public String login() {
-        return "admin/login";
+        return "admin/login"; // 返回admin/login.html页面
     }
 
     /**
      * 管理后台登录
-     * @param username
-     * @param password
-     * @param remeber_me
-     * @param request
-     * @param response
+     * @param username 用户名
+     * @param password 密码
+     * @param remeber_me 记住我
+     * @param request 请求
+     * @param response 响应
      * @return
+     *
+     * required=false表示不传的话，会给参数赋值为null，required=true就是必须要有
      */
     @PostMapping(value = "login")
     @ResponseBody
@@ -64,8 +73,10 @@ public class AuthController extends BaseController {
                                   HttpServletRequest request,
                                   HttpServletResponse response) {
 
+        // 从缓存中获取登录错误次数
         Integer error_count = cache.get("login_error_count");
         try {
+            // 使用用户Service的login方法登录
             UserVo user = usersService.login(username, password);
             request.getSession().setAttribute(WebConst.LOGIN_SESSION_KEY, user);
             if (StringUtils.isNotBlank(remeber_me)) {
@@ -96,15 +107,24 @@ public class AuthController extends BaseController {
      */
     @RequestMapping("/logout")
     public void logout(HttpSession session, HttpServletResponse response, HttpServletRequest request) {
-        session.removeAttribute(WebConst.LOGIN_SESSION_KEY);
-        Cookie cookie = new Cookie(WebConst.USER_IN_COOKIE, "");
-        cookie.setMaxAge(0);
-        response.addCookie(cookie);
+        // 注销后清空指定的login_user属性 ，就是从session中删除login_user名称的绑定对象
+        session.removeAttribute(WebConst.LOGIN_SESSION_KEY); // session.removeAttribute(login_user)
+        /*
+            删除cookie
+            cookie对象是一个key-value数值对，key表示cookie的名字，value表示存放的数据，可以是任何对象
+         */
+        // 删除某个Cookie时，只需要新建一个同名Cookie，然后添加到response中覆盖原来的Cookie
+        Cookie cookie = new Cookie(WebConst.USER_IN_COOKIE, ""); // 新建cookie对象
+        cookie.setMaxAge(0);                                               // 设置生命周期为0，表示将要删除
+        response.addCookie(cookie);                                        //  执行添加后就从response里删除了
         try {
+            // 退出后重定向到登录界面 重定向到admin/login
             //response.sendRedirect(Commons.site_url());
             response.sendRedirect(Commons.site_login());
         } catch (IOException e) {
             e.printStackTrace();
+            // 如果抛出IO异常就打印注销失败信息
+            // logger.error如等级设为Error的话，warn,info,debug的信息不会输出 打印错误堆栈信息
             LOGGER.error("注销失败", e);
         }
     }

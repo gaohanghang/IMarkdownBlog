@@ -2,9 +2,6 @@ package com.my.blog.website.service;
 
 import com.my.blog.website.modal.Vo.UserVo;
 
-/**
- * Created by BlueT on 2017/3/3.
- */
 public interface IUserService {
 
     /**

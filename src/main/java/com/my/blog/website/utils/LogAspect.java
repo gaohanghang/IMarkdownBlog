@@ -16,17 +16,21 @@ import javax.sql.DataSource;
 import java.util.Arrays;
 
 /**
- * 借口aop
+ * 日志aop
  * Created by wangq on 2017/3/24.
  */
 @Aspect
 @Component
 public class LogAspect {
+
+    // 日志记录对象
     private static final Logger LOGGER = LoggerFactory.getLogger(DataSource.class);
 
+    // 切入点为com.my.blog.website.controller包下子包的类的任意方法
     @Pointcut("execution(public * com.my.blog.website.controller..*.*(..))")
     public void webLog(){}
 
+    // 在切入点之前执行
     @Before("webLog()")
     public void doBefore(JoinPoint joinPoint) throws Throwable {
         // 接收到请求，记录请求内容

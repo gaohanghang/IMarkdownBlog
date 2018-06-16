@@ -3603,12 +3603,18 @@ body.fixed-left .side-menu.left {
         overflow-x: hidden
     }
 
+    .topbar-left {
+        /*当宽度小于767px时，背景颜色设为白色*/
+        width: 70px !important;
+        background-color: #FFFFFF !important;
+    }
+
     .content-page {
         margin-left: 0 !important
     }
 
     .enlarged .left.side-menu {
-        margin-left: -75px
+        margin-left: -75px;
     }
 
     .mobile-sidebar {
@@ -3700,8 +3706,11 @@ body.fixed-left .side-menu.left {
         display: none !important
     }
 
+    /*左侧导航条*/
     .topbar-left {
-        width: 70px !important
+        /*当宽度小于420px时，顶部导航左侧宽度设为70px*/
+        width: 70px !important;
+        background-color: #FFFFFF !important;
     }
 
     .logo span {

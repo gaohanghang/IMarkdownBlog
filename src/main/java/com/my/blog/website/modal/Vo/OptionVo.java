@@ -3,7 +3,7 @@ package com.my.blog.website.modal.Vo;
 import java.io.Serializable;
 
 /**
- * 配合实体类
+ * 配置实体类
  * @author 
  */
 public class OptionVo implements Serializable {

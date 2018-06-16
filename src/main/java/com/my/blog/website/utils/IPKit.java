@@ -8,11 +8,10 @@ import java.util.Enumeration;
 
 /**
  * ip工具类
- * Created by BlueT on 2017/3/9.
  */
 public class IPKit {
     /**
-     * 通过请求获取ip地址
+     * 获取真实的 IP
      * @param request 请求
      * @return IP Address
      */

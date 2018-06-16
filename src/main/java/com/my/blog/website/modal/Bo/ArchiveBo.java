@@ -5,10 +5,6 @@ import com.my.blog.website.modal.Vo.ContentVo;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- *
- *
- */
 public class ArchiveBo implements Serializable {
 
     private String date;

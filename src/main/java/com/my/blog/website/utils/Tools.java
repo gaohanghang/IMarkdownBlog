@@ -34,6 +34,7 @@ public class Tools {
         }
     }
 
+    // 获取min-max范围内的随机数
     public static int rand(int min, int max) {
         return random.nextInt(max) % (max - min + 1) + min;
     }

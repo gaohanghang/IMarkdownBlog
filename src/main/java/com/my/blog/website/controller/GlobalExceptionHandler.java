@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
  */
 @ControllerAdvice
 public class GlobalExceptionHandler {
+    // 日志记录对象
     private static final Logger LOGGER = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     @ExceptionHandler(value = TipException.class)
