@@ -32,21 +32,38 @@ public class RestResponseBo<T> {
      */
     private long timestamp;
 
+    /**
+     * 无参构造器
+     */
     public RestResponseBo() {
         this.timestamp = System.currentTimeMillis() / 1000;
     }
 
+    /**
+     * 有参构造器
+     * @param success 请求是否成功
+     */
     public RestResponseBo(boolean success) {
-        this.timestamp = System.currentTimeMillis() / 1000;
+        this.timestamp = System.currentTimeMillis() / 1000; // 初始化响应时间
         this.success = success;
     }
 
+    /**
+     *
+     * @param success 请求是否成功
+     * @param payload 服务器响应数据
+     */
     public RestResponseBo(boolean success, T payload) {
         this.timestamp = System.currentTimeMillis() / 1000;
         this.success = success;
         this.payload = payload;
     }
 
+    /**
+     * @param success 请求是否成功
+     * @param payload 服务器响应数据
+     * @param code 状态码
+     */
     public RestResponseBo(boolean success, T payload, int code) {
         this.timestamp = System.currentTimeMillis() / 1000;
         this.success = success;
@@ -54,12 +71,21 @@ public class RestResponseBo<T> {
         this.code = code;
     }
 
+    /**
+     * @param success 请求是否成功
+     * @param msg 错误信息
+     */
     public RestResponseBo(boolean success, String msg) {
         this.timestamp = System.currentTimeMillis() / 1000;
         this.success = success;
         this.msg = msg;
     }
 
+    /**
+     * @param success 请求是否成功
+     * @param msg 错误信息
+     * @param code 状态码
+     */
     public RestResponseBo(boolean success, String msg, int code) {
         this.timestamp = System.currentTimeMillis() / 1000;
         this.success = success;

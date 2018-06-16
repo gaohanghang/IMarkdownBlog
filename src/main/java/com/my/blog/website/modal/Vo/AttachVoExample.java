@@ -2,7 +2,9 @@ package com.my.blog.website.modal.Vo;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/*
+  使用bean传递参数 它是一种Java类，通过封装成为具有某种功能或者处理某个业务的对象
+ */
 public class AttachVoExample {
     protected String orderByClause;
 

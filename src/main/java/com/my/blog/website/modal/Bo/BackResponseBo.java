@@ -2,10 +2,14 @@ package com.my.blog.website.modal.Bo;
 
 import java.io.Serializable;
 
+//
 public class BackResponseBo implements Serializable {
 
+    // 文件路径
     private String attachPath;
+    // 主题路径
     private String themePath;
+    // sql路径
     private String sqlPath;
 
     public String getAttachPath() {

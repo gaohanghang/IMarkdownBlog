@@ -5,6 +5,7 @@ import com.my.blog.website.modal.Vo.CommentVo;
 import java.util.List;
 
 /**
+ * 评论业务对象
  * 返回页面的评论，包含父子评论内容
  */
 public class CommentBo extends CommentVo {

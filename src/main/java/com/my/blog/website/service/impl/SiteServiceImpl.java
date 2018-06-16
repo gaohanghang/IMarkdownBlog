@@ -80,6 +80,7 @@ public class SiteServiceImpl implements ISiteService {
     @Override
     public BackResponseBo backup(String bk_type, String bk_path, String fmt) throws Exception {
         BackResponseBo backResponse = new BackResponseBo();
+        // 如果类型为文件
         if (bk_type.equals("attach")) {
             if (StringUtils.isBlank(bk_path)) {
                 throw new TipException("请输入备份文件存储路径");
