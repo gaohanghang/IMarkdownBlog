@@ -38,9 +38,9 @@
                                     <td><a th:href="@{${comment.url}}" target="_blank" th:text="${comment.url}"></a>
                                     </td>
                                     <td>
-                                        <th:block th:if="${comment.status == 'approved'}">
+                                       <!-- <th:block th:if="${comment.status == 'approved'}">
                                             <span class="label label-success">审核通过</span>
-                                        </th:block>
+                                        </th:block>-->
                                         <th:block th:if="${comment.status == 'not_audit'}">
                                             <span class="label label-default">未审核</span>
                                         </th:block>
