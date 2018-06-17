@@ -1,6 +1,7 @@
 package com.my.blog.website.dto;
 
 /**
+ *
  * 日志表的action字段
  */
 public enum LogActions {

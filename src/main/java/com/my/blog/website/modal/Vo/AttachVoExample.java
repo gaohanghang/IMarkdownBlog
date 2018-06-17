@@ -2,14 +2,23 @@ package com.my.blog.website.modal.Vo;
 
 import java.util.ArrayList;
 import java.util.List;
-/*
-  使用bean传递参数 它是一种Java类，通过封装成为具有某种功能或者处理某个业务的对象
+/**
+ * MyBatis Generator产生的Example类
+ * Example类用于构造复杂的筛选条件。
+ *
+ *
+ * 使用bean传递参数 它是一种Java类，通过封装成为具有某种功能或者处理某个业务的对象
  */
 public class AttachVoExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
+    /**
+     * Criterion是最基本,最底层的Where条件，用于字段级的筛选，feild用于指代字段名字
+     * Criteria包含一个Cretiron的集合,每一个Criteria对象内包含的Cretiron之间是由AND连接的,是逻辑与的关系。
+     * Example内有一个成员叫oredCriteria,是Criteria的集合,就想其名字所预示的一样，这个集合中的Criteria是由OR连接的，是逻辑或关系。oredCriteria就是ORed Criteria。
+     */
     protected List<Criteria> oredCriteria;
 
     private Integer limit;
@@ -20,6 +29,9 @@ public class AttachVoExample {
         oredCriteria = new ArrayList<Criteria>();
     }
 
+    /**
+     * example.setOrderByClause("字段名 ASC"); //升序排列，desc为降序排列。
+     */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
     }
@@ -28,6 +40,10 @@ public class AttachVoExample {
         return orderByClause;
     }
 
+    /**
+     * example.setDistinct(false)//去除重复，boolean型，true为选择不重复的记录。
+     * @param distinct
+     */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
     }

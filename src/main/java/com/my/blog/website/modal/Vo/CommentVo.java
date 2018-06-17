@@ -8,7 +8,7 @@ import java.io.Serializable;
  */
 public class CommentVo implements Serializable {
     /**
-     * comment表主
+     * comment表主键
      */
     private Integer coid;
 

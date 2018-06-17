@@ -3,13 +3,17 @@ package com.my.blog.website.modal.Bo;
 import java.io.Serializable;
 
 /**
- * 后台统计对象
+ * 后台统计业务对象
  */
 public class StatisticsBo implements Serializable {
 
+    // 文章数
     private Long articles;
+    // 评论数
     private Long comments;
+    // 链接数据
     private Long links;
+    // 文件数
     private Long attachs;
 
     public Long getArticles() {

@@ -8,8 +8,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public interface AttachVoMapper {
+    // 统计有多少个文件
     long countByExample(AttachVoExample example);
 
+    //
     int deleteByExample(AttachVoExample example);
 
     int deleteByPrimaryKey(Integer id);

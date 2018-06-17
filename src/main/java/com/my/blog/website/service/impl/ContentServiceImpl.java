@@ -162,6 +162,13 @@ public class ContentServiceImpl implements IContentService {
         return new PageInfo<>(contentVos);
     }
 
+    /**
+     * 返回指定页数和多少条的数据
+     * @param commentVoExample
+     * @param page
+     * @param limit
+     * @return
+     */
     @Override
     public PageInfo<ContentVo> getArticlesWithpage(ContentVoExample commentVoExample, Integer page, Integer limit) {
         PageHelper.startPage(page, limit);

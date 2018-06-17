@@ -105,6 +105,7 @@ $.tale.prototype.alertError = function (options) {
  * @param options
  */
 $.tale.prototype.alertBox = function (options) {
+    // 使用SweetAlert2 弹窗
     swal({
         title: options.title,
         text: options.text,

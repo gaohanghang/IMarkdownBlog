@@ -2,6 +2,8 @@
 
 用spring boot开发的web博客系统
 
+基于tale开源博客系统
+
 myblog.sql为数据库文件
 
 ## 首页

@@ -17,9 +17,17 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
+/**
+ * @SpringBootApplication 是 @SpringBootConfiguration，@EnableAutoConfiguration以及@ComponentScan
+ * @SpringBootConfiguration 这个注解实际上和@Configuration有相同的作用，配备了该注解的类就能够以JavaConfig的方式完成一些配置，可以不再使用XML配置。
+ * @ComponentScan ，这个注解完成的是自动扫描的功能
+ * @EnableAutoConfiguration 这个注解是让Spring Boot的配置能够如此简化的关键性注解。
+ * 使用@MapperScan可以指定要扫描的Mapper类的包的路径
+ *
+ */
 @MapperScan("com.my.blog.website.dao")
 @SpringBootApplication
-@EnableTransactionManagement
+@EnableTransactionManagement // 注解事务管理，等同于xml配置方式的 <tx:annotation-driven />
 public class CoreApplication extends SpringBootServletInitializer
 {
     @Override

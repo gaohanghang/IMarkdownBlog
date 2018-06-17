@@ -2,7 +2,9 @@ package com.my.blog.website.modal.Bo;
 
 import java.io.Serializable;
 
-//
+/**
+ * 文件备份业务对象
+ */
 public class BackResponseBo implements Serializable {
 
     // 文件路径
